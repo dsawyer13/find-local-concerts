@@ -1,0 +1,140 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+body {
+	background:linear-gradient(rgba(40, 40, 40, 0.45),rgba(102, 0, 255, 0.45)), url("https://stmed.net/sites/default/files/concert-wallpapers-30311-195711.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: #a6abab;
+	font-family: 'Raleway', sans-serif;
+}
+li {
+	list-style: none;
+}
+ul {
+	border: 1px solid black;
+	position: relative;
+}
+row {
+	max-width: 1000px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.container {
+	margin: auto;
+	margin-top: 300px;
+	display: block;
+	padding: 30px 20px 30px 20px;
+	font-size: 20px;
+	color: rgb(243, 243, 215);
+	display: block;
+	background-color: black;
+	border-radius: 10px;
+	text-align: center;
+	max-width: 500px;
+}
+.buttons {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+#results-list {
+	/*max-width: 600px;
+	*/
+	margin: 0 auto;
+	padding-left: 0;
+	max-width: 900px;
+}
+h4, .concertLocation {
+	display: inline;
+}
+h4 {
+	padding-right: 100px;
+}
+.concertPic {
+	position: relative;
+	left: 0px;
+	float: left;
+	margin: 0px;
+	vertical-align: top;
+	display: block;
+}
+fieldset {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+h1.logo {
+	font-family: 'Montserrat', sans-serif;
+	color: white;
+	display: inline-block;
+	padding: 10px;
+}
+h1.navh1 {
+	font-family: 'Montserrat', sans-serif;
+	color: white;
+	display: inline-block;
+}
+form.bar {
+	text-align: center;
+	margin: 0 auto;
+	position: absolute;
+	right: 40px;
+	top: 7px;
+	max-width: 300px;
+}
+nav {
+	background-color: black;
+	margin-bottom: 20px;
+	postion: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding: 10px 40px 10px 40px;
+}
+ul {
+	margin-bottom: 20px;
+	padding: 0px;
+	background-color: white;
+	border-radius: 0px;
+	border-style:hidden;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	clear: both;
+	overflow: auto;
+}
+.search-button, .start-search-button {
+	background:#0099ff;
+	color:white;
+	font: 'trebuchet ms', trebuchet;
+	padding:10px 20px;
+	border-radius:0 5px 5px 0;
+	-moz-border-radius:0 5px 5px 0;
+	-webkit-border-radius:0 5px 5px 0;
+	-o-border-radius:0 5px 5px 0;
+	border:0 none;
+	font-weight:bold;
+	cursor: pointer;
+}
+.search-text, .start-search-text {
+	background: #eee;
+	padding:10px;
+	border-radius:5px 0 0 5px;
+	-moz-border-radius:5px 0 0 5px;
+	-webkit-border-radius:5px 0 0 5px;
+	-o-border-radius:5px 0 0 5px;
+	border:0 none;
+	max-width:250px;
+}
+.tickets, .getAudioButton {
+	background-color: #0099ff;
+	border: none;
+	border-radius: 5px;
+	font-size: 20px;
+	color: white;
+	padding: 10px 25px;
+	margin: 15px 5px 5px 5px;
+	display: block;
+	width: 160px;
+	cursor: pointer;
+}
