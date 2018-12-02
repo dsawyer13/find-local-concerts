@@ -7,34 +7,44 @@ var rapid = new RapidAPI("find-local-shows_5bf6080de4b08725af2b0d57", "b306b59c-
 
 
 function watchInput() {
-  $('form').submit(event => {
+  $('.startForm').submit(event => {
     event.preventDefault();
-    const searchTerm = $('#js-search-term').val();
-    $('.appendNav').html(
-      `<main role="main">
-      <nav role="navigation">
-        <h1 class="navh1">🎵 Find Local Shows</h1>
-        <form class="bar">
-          <fieldset name="search-bar">
-            <label for="search-term">
-              <input class="search-text" type="text" name="search-term" id="js-search-term" placeholder="Search by Location...">
-            </label>
-            <input class="search-button" type="submit" value="Go!">
-          </fieldset>
-          </form>
-      </nav>`
-    )
+    const searchTerm = $('.search-text').val();
+    const startVisible = $('.startPage').css('display');
+    if (startVisible !== 'none') {
+    $('.startPage').css('display', 'none');
+    $('.appendNav').css('display', 'block');
     getConcerts(searchTerm);
+  $('.startForm').reset();}
 
+    else {
+      watchNavBar();
+    }
   })
 };
 
+function watchNavBar() {
+  $('.bar').submit(event => {
+    event.preventDefault();
+    const searchTerm2 = $('.nav-search-text').val();
+    getConcerts(searchTerm2);
+    $('.bar').reset();
+  })
+}
+
+function watchHomeButton() {
+  $('.navh1').on('click', event => {
+    $('.appendNav').css('display', 'none');
+    $('.startPage').css('display', 'block')
+    $('#results-list').empty();
+  }
+)
+}
+
 function getConcerts(searchTerm) {
-  const params = {
+  let params = {
     city: searchTerm,
     apikey: tmApiKey,
-    //radius: '50',
-    //unit: 'miles',
     countryCode: 'US',
     classificationName: 'music'
   };
@@ -81,20 +91,21 @@ function displayConcertResults(responseJson) {
     console.log(artistName);
 
      $('#results-list').append(
-       `<ul>
-          <li class="concertPic"><img src="${responseJson._embedded.events[i].images[4].url}" width="225px" height="150px" class="show-image" alt="${responseJson._embedded.events[i].name}"></li>
-          <div class="textBlock">
-            <li class="date">${fixDate}</li>
-            <li class="title"><h4>${responseJson._embedded.events[i].name}</h4></li>
-            <li class="concertLocation">@ ${responseJson._embedded.events[i]._embedded.venues[0].name}</li>
+       `<li class="eachResult">
+          <img class="concertPic" src="${responseJson._embedded.events[i].images[4].url}" width="225px" height="160px" class="show-image" alt="${responseJson._embedded.events[i].name}">
 
-            <li><div class='audioPlayer'></div></li>
-          </div>
-          <div class="buttons">
-            <button class="getAudioButton" artistName='${artistName}' item-index="${i}">Play Music</button>
-            <button class="tickets" onclick="window.location.href='${responseJson._embedded.events[i].url}'">Buy Tickets</button>
-          </div>
-        </ul>
+            <div class="textBlock">
+              <div class="date">${fixDate}</div>
+              <div class="title"><h4>${responseJson._embedded.events[i].name}</h4></div>
+              <div class="concertLocation">@ ${responseJson._embedded.events[i]._embedded.venues[0].name}</div>
+            </div>
+            <div class="button">
+              <button class="getAudioButton" artistName='${artistName}' item-index="${i}">Play Music</button>
+              <button class="tickets" onClick="window.open('${responseJson._embedded.events[i].url}')">Buy Tickets</button>
+              <div class='audioPlayer'></div>
+            </div>
+
+        </li>
        `
 
      )
@@ -125,6 +136,10 @@ function getAudioPlayer() {
   }
   )
 }
+function runScripts() {
+  $(watchHomeButton);
+  $(watchNavBar);
+  $(watchInput);
+};
 
-
-$(watchInput);
+runScripts();

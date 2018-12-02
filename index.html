@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Find Local Shows</title>
+    <title>Find Local Concerts</title>
+
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="grid.css">
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
@@ -14,26 +15,42 @@
      <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway" rel="stylesheet">
   </head>
   <body>
-    <div class="appendNav">
-      <div class="row">
-      <main role="main" class="container">
-          <h1 class="logo">🎵 Find Local Shows</h1>
-          <form>
-            <fieldset name="search-bar">
+
+  <div class="startPage">
+      <div class=" container">
+          <form class="startForm">
+            <h1 class="logo">🎵 Find Local Concerts</h1>
+            <fieldset name="search-bar" >
               <label for="search-term">
-                <input class="search-text" type="text" name="search-term" id="js-search-term" placeholder="Search by Location...">
+                <input class="search-text" type="text" name="search-term" placeholder="Search by City...">
               </label>
-              <input class="search-button" type="submit" value="Go!">
+              <input class="start-search-button search-button" type="submit" value="Go!">
             </fieldset>
-            </form>
+          </form>
         </div>
       </div>
-      <p id="js-error-message"></p>
-      <section class="results hidden">
-        <h2 class="results-header"></h2>
-        <div id="results-list"  class="col-10"></div>
-      </section>
-    </main>
+    <div class="appendNav hidden" role="nav">
+        <h1 class="navh1">🎵 Find Local Shows</h1>
+        <form class="bar">
+          <fieldset name="search-bar">
+            <label for="search-term">
+              <input class="nav-search-text" type="text" name="search-term" id="js-search-term" placeholder="Search by City...">
+            </label>
+            <input class="search-button" type="submit" value="Go!">
+          </fieldset>
+        </form>
+    </div>
+
+
+    <p id="js-error-message"></p>
+
+      <h2 class="results-header"></h2>
+      <div class="row">
+        <ul id="results-list"></ul>
+      </div>
+
+
+
     <script src="app.js"></script>
   </body>
 </html>
