@@ -56,7 +56,10 @@
   width: 180px;
 }
 .nav-search-text {
-  width: 150px;
+  width: 77%;
+}
+.search-button {
+  width: 20%;
 }
 .appendNav {
   text-align: center;
