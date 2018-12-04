@@ -9,15 +9,16 @@ var rapid = new RapidAPI("find-local-shows_5bf6080de4b08725af2b0d57", "b306b59c-
 function watchInput() {
   $('.startForm').submit(event => {
     event.preventDefault();
+
     const searchTerm = $('.search-text').val();
+
     const startVisible = $('.startPage').css('display');
     if (startVisible !== 'none') {
-    $('.startPage').css('display', 'none');
-    $('.appendNav').css('display', 'block');
-    getConcerts(searchTerm);
-  $('.startForm').reset();}
-
-    else {
+      $('.startPage').css('display', 'none');
+      $('.appendNav').css('display', 'block');
+      getConcerts(searchTerm);
+      $('.startForm').reset();
+    } else {
       watchNavBar();
     }
   })
@@ -51,8 +52,6 @@ function getConcerts(searchTerm) {
   const queryString = formatQueryParams(params);
   const url = tmURL + '?' + queryString;
 
-  console.log(url);
-
   fetch(url)
     .then(response => {
       if (response.ok) {
@@ -79,7 +78,7 @@ function formatQueryParams(params) {
 };
 //creates li item for each concert and appends them to #results-list
 function displayConcertResults(responseJson) {
-  console.log(responseJson);
+
   $('#js-error-message').empty();
   $('#results-list').empty();
    for (let i = 0; i < 10; i++) {
@@ -87,8 +86,6 @@ function displayConcertResults(responseJson) {
      const fixDate = ((date.getMonth()+1)+ '/' + date.getDate() + '/' + date.getFullYear());
 
     let artistName = `${responseJson._embedded.events[i]._embedded.attractions[0].name}`;
-
-    console.log(artistName);
 
      $('#results-list').append(
        `<li class="eachResult">
