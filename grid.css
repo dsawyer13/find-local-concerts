@@ -13,7 +13,7 @@
 
 .textBlock {
   grid-area: text;
-  justify-self: center;
+  margin-left: 150px;
   align-self: center;
 
 }
