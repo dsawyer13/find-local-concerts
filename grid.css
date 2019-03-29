@@ -1,26 +1,32 @@
 .eachResult {
   display: grid;
   grid-template-columns: 1fr 3fr;
-  grid-template-rows: 1fr 1fr;
   grid-template-areas:
-    "picture text"
-    "picture button";
+    "picture info"
 }
 
 .concertPic {
   grid-area: picture;
 }
 
-.textBlock {
-  grid-area: text;
-  margin-left: 150px;
+.info {
+  grid-area: info;
+  margin: 0 auto;
   align-self: center;
 
 }
 
+.textBlock {
+  text-align: center;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 19px;
+}
+
 .button {
-  grid-area: button;
-  justify-self: center;
+  text-align: center;
 }
 
 .navh1 {

@@ -17,7 +17,7 @@ function watchInput() {
       $('.startPage').css('display', 'none');
       $('.appendNav').css('display', 'block');
       getConcerts(searchTerm);
-      $('.startForm').reset();
+      $('.startForm').value('');
     } else {
       watchNavBar();
     }
@@ -29,7 +29,7 @@ function watchNavBar() {
     event.preventDefault();
     const searchTerm2 = $('.nav-search-text').val();
     getConcerts(searchTerm2);
-    $('.bar').reset();
+    $('.bar').value('');
   })
 }
 //listens for h1 click event, returns user to Landing page
@@ -90,10 +90,10 @@ function displayConcertResults(responseJson) {
      $('#results-list').append(
        `<li class="eachResult">
           <img class="concertPic" src="${responseJson._embedded.events[i].images[4].url}" width="225px" height="160px" class="show-image" alt="${responseJson._embedded.events[i].name}">
-
+          <div class="info">
             <div class="textBlock">
               <div class="date">${fixDate}</div>
-              <div class="title"><h4>${responseJson._embedded.events[i].name}</h4></div>
+              <div class="title">${responseJson._embedded.events[i].name}</div>
               <div class="concertLocation">@ ${responseJson._embedded.events[i]._embedded.venues[0].name}</div>
             </div>
             <div class="button">
@@ -101,7 +101,7 @@ function displayConcertResults(responseJson) {
               <button class="tickets" onClick="window.open('${responseJson._embedded.events[i].url}')">Buy Tickets</button>
               <div class='audioPlayer'></div>
             </div>
-
+          </div>
         </li>
        `
 
