@@ -13,11 +13,12 @@ function watchInput() {
     const searchTerm = $('.search-text').val();
 
     const startVisible = $('.startPage').css('display');
-    if (startVisible !== 'none') {
+
+    if (startVisible !== 'none' && ) {
       $('.startPage').css('display', 'none');
       $('.appendNav').css('display', 'block');
       getConcerts(searchTerm);
-      $('.startForm').value('');
+      $('.startForm').text('');
     } else {
       watchNavBar();
     }
@@ -29,7 +30,7 @@ function watchNavBar() {
     event.preventDefault();
     const searchTerm2 = $('.nav-search-text').val();
     getConcerts(searchTerm2);
-    $('.bar').value('');
+    $('.bar').text('');
   })
 }
 //listens for h1 click event, returns user to Landing page
@@ -60,7 +61,7 @@ function getConcerts(searchTerm) {
       }
       throw new Error(response.statusText);
     })
-    .then(responseJson => displayConcertResults(responseJson))
+    .then(responseJson => {displayConcertResults(responseJson);console.log(responseJson);})
     .catch(err => {
       alert("Invalid Search. Please try again.");
     })
@@ -84,24 +85,30 @@ function displayConcertResults(responseJson) {
    for (let i = 0; i < 10; i++) {
      var date = new Date(responseJson._embedded.events[i].dates.start.localDate);
      const fixDate = ((date.getMonth()+1)+ '/' + date.getDate() + '/' + date.getFullYear());
-
-    let artistName = `${responseJson._embedded.events[i]._embedded.attractions[0].name}`;
-
+     let artistName = `${responseJson._embedded.events[i]._embedded.attractions[0].name}`;
+     const pictures = responseJson._embedded.events[i].images;
+     const highResPic = pictures.filter(picture => {
+       return picture.ratio === "4_3";
+     })
      $('#results-list').append(
        `<li class="eachResult">
-          <img class="concertPic" src="${responseJson._embedded.events[i].images[4].url}" width="225px" height="160px" class="show-image" alt="${responseJson._embedded.events[i].name}">
-          <div class="info">
-            <div class="textBlock">
-              <div class="date">${fixDate}</div>
-              <div class="title">${responseJson._embedded.events[i].name}</div>
-              <div class="concertLocation">@ ${responseJson._embedded.events[i]._embedded.venues[0].name}</div>
+
+            <div class="picContainer">
+              <img class="concertPic" src="${highResPic[0].url}" width="225px" height="160px" class="show-image" alt="${responseJson._embedded.events[i].name}">
             </div>
-            <div class="button">
-              <button class="getAudioButton" artistName='${artistName}' item-index="${i}">Play Music</button>
-              <button class="tickets" onClick="window.open('${responseJson._embedded.events[i].url}')">Buy Tickets</button>
-              <div class='audioPlayer'></div>
+            <div class="info">
+              <div class="textBlock">
+                <div class="date">${fixDate}</div>
+                <div class="title">${responseJson._embedded.events[i].name}</div>
+                <div class="concertLocation">@ ${responseJson._embedded.events[i]._embedded.venues[0].name}</div>
+              </div>
+              <div class="button">
+                <button class="getAudioButton" artistName='${artistName}' item-index="${i}">Play Music</button>
+                <button class="tickets" onClick="window.open('${responseJson._embedded.events[i].url}')">Buy Tickets</button>
+                <div class='audioPlayer'></div>
+              </div>
             </div>
-          </div>
+
         </li>
        `
 

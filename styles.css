@@ -64,7 +64,9 @@ h1.logo {
 	display: inline-block;
 	padding: 10px;
 }
-h1.navh1 {
+.navh1 {
+	font-size: 30px;
+	font-weight: bold;
 	font-family: 'Montserrat', sans-serif;
 	color: white;
 	display: inline-block;
