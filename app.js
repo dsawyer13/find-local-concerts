@@ -14,7 +14,7 @@ function watchInput() {
 
     const startVisible = $('.startPage').css('display');
 
-    if (startVisible !== 'none' && ) {
+    if (startVisible !== 'none') {
       $('.startPage').css('display', 'none');
       $('.appendNav').css('display', 'block');
       getConcerts(searchTerm);
