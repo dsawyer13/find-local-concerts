@@ -17,6 +17,6 @@ Results page.  The Results page lists 10 concerts in the selected city.  If the 
 
 ## Screenshots
 
-![Landing Page](https://imgur.com/EWGQS4n.png "Landing Page")
+![Landing Page](https://imgur.com/01NBKNh.png "Landing Page")
 
-![Results Page](https://imgur.com/xSWl3w0.png "Results Page")
+![Results Page](https://imgur.com/pjZtGz3.png "Results Page")
