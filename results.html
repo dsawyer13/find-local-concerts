@@ -13,22 +13,25 @@
      <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway" rel="stylesheet">
   </head>
   <body>
+    <div class="searchForm" role="nav">
+        <div class="navh1">🎵 Find Local Concerts</div>
+        <form class="bar">
+          <fieldset name="search-bar">
+            <label for="search-term">
+              <input class="search-text" type="text" name="search-term" placeholder="Search by City...">
+            </label>
+            <input class="search-button" type="submit" value="Go!">
+          </fieldset>
+          <div class="error-message"></div>
+        </form>
+    </div>
+    <p id="js-error-message"></p>
 
-  <div class="startPage">
-      <div class=" container">
-          <form class="startForm">
-            <h1 class="logo">🎵 Find Local Concerts</h1>
-            <p class="landing-info">Find and listen to artists coming to your area.</p>
-            <fieldset name="search-bar" >
-              <label for="search-term">
-                <input class="search-text" type="text" name="search-term" placeholder="Search by City...">
-              </label>
-              <input class="start-search-button search-button" type="submit" value="Go!">
-            </fieldset>
-            <div class="error-message"></div>
-          </form>
-        </div>
+      <h2 class="results-header"></h2>
+      <div class="row">
+        <ul id="results-list"></ul>
       </div>
+    <script src="results.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

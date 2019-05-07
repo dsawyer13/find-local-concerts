@@ -72,19 +72,22 @@ h1.logo {
 	display: inline-block;
 	cursor: pointer;
 }
-form.bar {
+.bar {
 	text-align: center;
 	margin: 0 auto;
 	display: inline-block;
 	float: right;
 }
-.navBar {
+.searchForm {
 	background-color: black;
 	margin-bottom: 20px;
-	top: 0;
-	left: 0;
-	right: 0;
-	padding: 10px 40px 10px 40px;
+	padding: 10px 40px;
+}
+
+.error-message {
+	color: red;
+	font-size: 12px;
+	margin-top: 5px;
 }
 
 .eachResult {

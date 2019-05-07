@@ -72,9 +72,9 @@
     width: 100%;
     border-bottom: 4px solid #070707;
   }
-  .appendNav {
+  .searchForm {
     text-align: center;
-    padding: 10px 40px 50px 40px;
+    padding: 10px 40px 10px 40px;
     grid-template-columns:100%;
     grid-template-rows: auto auto;
     grid-template-areas:
