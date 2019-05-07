@@ -29,6 +29,23 @@
           </form>
         </div>
       </div>
+      <div class="searchForm hidden" role="nav">
+          <div class="navh1">🎵 Find Local Concerts</div>
+          <form class="bar">
+            <fieldset name="search-bar">
+              <label for="search-term">
+                <input class="search-text" type="text" name="search-term" placeholder="Search by City...">
+              </label>
+              <input class="search-button" type="submit" value="Go!">
+            </fieldset>
+            <div class="error-message"></div>
+          </form>
+      </div>
+      <p id="js-error-message"></p>
+        <h2 class="results-header"></h2>
+        <div class="row">
+          <ul id="results-list"></ul>
+        </div>
     <script src="app.js"></script>
   </body>
 </html>

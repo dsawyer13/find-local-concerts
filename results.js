@@ -1,6 +1,6 @@
 "use strict";
-const concertsRaw = localStorage.getItem("concerts");
-const concerts = JSON.parse(concertsRaw);
+// const concertsRaw = localStorage.getItem("concerts");
+const concerts = JSON.parse(window.data.concerts);
 console.log(concerts)
 
 $(document).ready(displayConcertResults(concerts));
