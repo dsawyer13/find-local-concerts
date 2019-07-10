@@ -108,7 +108,7 @@ function displayConcertResults(concerts) {
                 <button class="getAudioButton" artistName='${artistName}' item-index="${i}">Play Music</button>
                 <button class="tickets" onClick="window.open('${
                   concerts._embedded.events[i].url
-                }')">Buy Tickets</button>
+                }')">Tickets</button>
                 <div class='audioPlayer'></div>
                 <div class="error" item-index='${i}'></div>
               </div>
